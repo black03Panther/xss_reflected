@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XSS Testumgebung</title>
+    <style>
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+        .input-container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>XSS Testumgebung</h1>
+        <div class="input-container">
+            <label for="input">Eingabe:</label>
+            <input type="text" id="input" placeholder="Gib hier etwas ein...">
+        </div>
+        <button onclick="showOutput()">Anzeigen</button>
+        <p id="output"></p>
+    </div>
+    <script>document.getElementById('input')</script>
+
+    <script>
+        function showOutput() {
+            var userInput = document.getElementById('input').value;
+            document.getElementById('output').innerHTML = 'Eingegebener Text: ' +  eval(userInput);
+        }
+    </script>
+
+    </body>
+</html>
